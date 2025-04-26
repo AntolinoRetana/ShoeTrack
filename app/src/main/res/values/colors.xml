@@ -2,4 +2,42 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!--  COLORES BASE Y DE FONDO -->
+    <color name="colorFondoPrincipal">#FFFFFF</color>
+    <color name="colorFondoSecundario">#F0F0F0</color>
+    <color name="colorFondoNatural">#F5F5DC</color>
+
+    <!--  TEXTO -->
+    <color name="colorTextoPrincipal">#000000</color>
+    <color name="colorTextoBlanco">#FFFFFFFF</color>
+
+    <!--  BOTONES / ACCIONES -->
+    <color name="btnPrimario">#003366</color>
+    <color name="btnSecundario">#FF6F00</color>
+    <color name="btnCategoria">#A4D4A1</color>
+
+    <!--  ETIQUETAS Y DETALLES DECORATIVOS -->
+    <color name="amarilloPastel">#FFEB3B</color>
+    <color name="rojoCoral">#FF7043</color>
+    <color name="cafeOscuro">#6D4C41</color>
+    <color name="duraznoSuave">#FFAB91</color>
+
+    <!-- ️ ESTILO MODERNO Y ELEGANTE -->
+    <color name="turquesa">#1DE9B6</color>
+    <color name="purpuraPastel">#D1C4E9</color>
+    <color name="verdeOscuro">#388E3C</color>
+
+    <!--  TOQUES PREMIUM -->
+    <color name="doradoMetalico">#FFD700</color>
+    <color name="plataMetalica">#C0C0C0</color>
+
+    <!--  ALERTAS Y NOTIFICACIONES -->
+    <color name="naranjaBrillante">#FF5722</color>
+    <color name="rojoVibrante">#F44336</color>
+
+    <!--  COLORES EXTRA / RESALTADO -->
+    <color name="limaBrillante">#C6FF00</color>
+    <color name="negroSolido">#FF000000</color>
+
 </resources>
