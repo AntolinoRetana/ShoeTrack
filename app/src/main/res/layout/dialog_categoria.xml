@@ -26,7 +26,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <!-- Sección de encabezado azul con el icono de perfil -->
+                <!-- Sección de encabezado azul con el icono de categoría -->
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="96dp"
@@ -44,7 +44,7 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:contentDescription="Product icon"
+                            android:contentDescription="Category icon"
                             android:padding="10dp"
                             android:scaleType="centerCrop"
                             android:src="@drawable/zapatos" />
@@ -55,18 +55,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="35dp" />
 
-                <!-- Ttulo del formulario -->
+                <!-- Título del formulario -->
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="16dp"
                     android:gravity="center"
-                    android:text="AGREGAR PRODUCTO"
+                    android:text="AGREGAR CATEGORÍA"
                     android:textColor="#4A90E2"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
-                <!-- Seccin l con los campos del formulario -->
+                <!-- Sección con el campo de nombre de categoría -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -74,54 +74,16 @@
                     android:padding="24dp">
 
                     <EditText
-                        android:id="@+id/txtNombreProducto"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="16dp"
-                        android:background="@drawable/style_imput"
-                        android:hint="Nombre del producto"
-                        android:padding="12dp" />
-
-                    <EditText
-                        android:id="@+id/txtMarcaProducto"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="16dp"
-                        android:background="@drawable/style_imput"
-                        android:hint="Marca"
-                        android:padding="12dp" />
-
-                    <EditText
-                        android:id="@+id/txtTallaProducto"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="16dp"
-                        android:background="@drawable/style_imput"
-                        android:hint="Talla"
-                        android:inputType="number"
-                        android:padding="12dp" />
-
-                    <EditText
-                        android:id="@+id/txtPrecioProducto"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="16dp"
-                        android:background="@drawable/style_imput"
-                        android:hint="Precio"
-                        android:inputType="numberDecimal"
-                        android:padding="12dp" />
-
-                    <Spinner
-                        android:id="@+id/spCategoria"
+                        android:id="@+id/txtNombreCategoria"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="24dp"
                         android:background="@drawable/style_imput"
-                        android:minHeight="48dp"
+                        android:hint="Nombre de la categoría"
                         android:padding="12dp" />
 
                     <Button
-                        android:id="@+id/btnInsertarProducto"
+                        android:id="@+id/btnInsertarCategoria"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/style_btn_primario"

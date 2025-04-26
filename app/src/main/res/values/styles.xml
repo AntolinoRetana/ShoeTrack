@@ -3,7 +3,7 @@
 
     <!-- Texto primario: títulos importantes -->
     <style name="TextoPrimario">
-        <item name="android:textSize">20sp</item>
+        <item name="android:textSize">24dp</item>
         <item name="android:textColor">@color/colorTextoPrincipal</item>
         <item name="android:textStyle">bold</item>
         <item name="android:fontFamily">sans-serif</item>
