@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Texto primario: títulos importantes -->
+    <style name="TextoPrimario">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/colorTextoPrincipal</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+    <!-- Texto secundario: subtítulos, descripciones -->
+    <style name="TextoSecundario">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/colorTextoPrincipal</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+    <!-- Texto terciario: detalles pequeños -->
+    <style name="TextoTerciario">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/colorFondoSecundario</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+
+
+    <!-- Botón primario: acciones principales (guardar, vender) -->
+    <style name="BotonPrimario">
+        <item name="android:backgroundTint">@color/btnPrimario</item>
+        <item name="android:textColor">@color/colorTextoBlanco</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <!-- Botón secundario: acciones secundarias (cancelar, editar) -->
+    <style name="BotonSecundario">
+        <item name="android:backgroundTint">@color/btnSecundario</item>
+        <item name="android:textColor">@color/colorTextoBlanco</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+    <!-- Botón terciario: botones pequeños, menos usados -->
+    <style name="BotonTerciario">
+        <item name="android:backgroundTint">#5A3A9B</item>
+        <item name="android:textColor">@color/colorTextoPrincipal</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+
+</resources>
