@@ -9,12 +9,13 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
 
+import com.example.shoetrack.Dialog.ClientesDialogos;
 import com.example.shoetrack.Fragments.ClientesFragment;
 import com.example.shoetrack.Fragments.EmpleadosFragment;
 import com.example.shoetrack.Fragments.ProductosFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class MainDashboardActivity extends AppCompatActivity {
+public class MainDashboardActivity extends AppCompatActivity implements ClientesDialogos.ClientesListener {
     private BottomNavigationView bottomNavigationView;
 
     @Override
@@ -59,6 +60,15 @@ public class MainDashboardActivity extends AppCompatActivity {
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.fragmentContainer, fragment)
+                .commit();
+    }
+    // Implementación de la interfaz ClientesListener
+    @Override
+    public void onClientesListener() {
+        // Aquí puedes actualizar la lista de clientes o hacer cualquier acción después de agregar un cliente
+        // Por ejemplo, podrías recargar el fragmento de clientes
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragmentContainer, new ClientesFragment())
                 .commit();
     }
 }

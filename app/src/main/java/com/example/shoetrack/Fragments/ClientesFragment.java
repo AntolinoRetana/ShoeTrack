@@ -3,12 +3,24 @@ package com.example.shoetrack.Fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
+import com.example.shoetrack.Adapters.ClientesAdapter;
+import com.example.shoetrack.DB.AppDatabase;
+import com.example.shoetrack.Dialog.ClientesDialogos;
+import com.example.shoetrack.Moduls.Clientes;
 import com.example.shoetrack.R;
+
+import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,6 +28,10 @@ import com.example.shoetrack.R;
  * create an instance of this fragment.
  */
 public class ClientesFragment extends Fragment {
+    private Button btnNuevoCliente;
+    private RecyclerView rcvClientes;
+    private ClientesAdapter adapter;
+    private List<Clientes> listaClientes;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -61,6 +77,43 @@ public class ClientesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_clientes, container, false);
+
+
+        View view = inflater.inflate(R.layout.fragment_clientes, container, false);
+        btnNuevoCliente = view.findViewById(R.id.btnNuevoCliente);
+        rcvClientes = view.findViewById(R.id.rcvClientes);
+
+        // Configurar el RecyclerView
+        rcvClientes.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        // Abrir el diálogo para agregar un cliente
+        btnNuevoCliente.setOnClickListener(v -> {
+            ClientesDialogos dialog = new ClientesDialogos();
+            dialog.show(getChildFragmentManager(), "ClienteDialog");
+        });
+
+        cargarClientes();
+        return view;
+    }
+
+    private void cargarClientes() {
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        executorService.execute(() -> {
+            AppDatabase db = AppDatabase.getInstance(getContext());
+            List<Clientes> clientes = db.clienteDao().obtenerTodos();  // Carga la lista de clientes desde la base de datos
+
+            requireActivity().runOnUiThread(() -> {
+                listaClientes = clientes;
+                if (adapter == null) {
+                    // Si el adapter aún no ha sido creado, lo creamos y lo asignamos al RecyclerView
+                    adapter = new ClientesAdapter(listaClientes, getContext());
+                    rcvClientes.setAdapter(adapter);
+                } else {
+                    // Si el adapter ya existe, simplemente notificamos al RecyclerView que los datos han cambiado
+                    adapter.notifyDataSetChanged();
+                }
+            });
+        });
+
     }
 }
