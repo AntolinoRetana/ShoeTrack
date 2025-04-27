@@ -9,13 +9,15 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
 
+import com.example.shoetrack.Dialog.CategoriasDialogo;
 import com.example.shoetrack.Dialog.ClientesDialogos;
+import com.example.shoetrack.Fragments.CategoriasFragment;
 import com.example.shoetrack.Fragments.ClientesFragment;
 import com.example.shoetrack.Fragments.EmpleadosFragment;
 import com.example.shoetrack.Fragments.ProductosFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class MainDashboardActivity extends AppCompatActivity implements ClientesDialogos.ClientesListener {
+public class MainDashboardActivity extends AppCompatActivity implements ClientesDialogos.ClientesListener, CategoriasDialogo.CategoriaListener {
     private BottomNavigationView bottomNavigationView;
 
     @Override
@@ -47,6 +49,9 @@ public class MainDashboardActivity extends AppCompatActivity implements Clientes
                 case R.id.nav_productos:
                     selectedFragment = new ProductosFragment();
                     break;
+                case R.id.nav_categorias:
+                    selectedFragment = new CategoriasFragment();
+                    break;
             }
 
             if (selectedFragment != null) {
@@ -69,6 +74,15 @@ public class MainDashboardActivity extends AppCompatActivity implements Clientes
         // Por ejemplo, podrías recargar el fragmento de clientes
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.fragmentContainer, new ClientesFragment())
+                .commit();
+    }
+
+
+    @Override
+    public void onCategoriaListener() {
+        // Acción cuando se agrega una categoría
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragmentContainer, new CategoriasFragment())
                 .commit();
     }
 }

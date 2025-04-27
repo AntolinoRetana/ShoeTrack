@@ -83,13 +83,26 @@
                         android:padding="12dp" />
 
                     <Button
-                        android:id="@+id/btnInsertarCategoria"
+                        android:id="@+id/btnAgrgarCategoria"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/style_btn_primario"
                         android:text="GUARDAR"
                         android:textColor="#FFFFFF"
                         android:textStyle="bold" />
+
+                    <!-- TextView para cancelar -->
+                    <TextView
+                        android:id="@+id/lblCancelarCategoria"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:gravity="center"
+                        android:text="CANCELAR"
+                        android:textColor="#4A90E2"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:padding="8dp" />
                 </LinearLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>

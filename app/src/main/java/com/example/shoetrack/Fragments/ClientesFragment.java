@@ -114,6 +114,5 @@ public class ClientesFragment extends Fragment {
                 }
             });
         });
-
     }
 }
