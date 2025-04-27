@@ -18,6 +18,7 @@ import com.example.shoetrack.Fragments.ProductosFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainDashboardActivity extends AppCompatActivity implements ClientesDialogos.ClientesListener, CategoriasDialogo.CategoriaListener {
+
     private BottomNavigationView bottomNavigationView;
 
     @Override
