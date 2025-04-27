@@ -69,7 +69,7 @@
         app:layout_constraintBottom_toBottomOf="parent">
 
         <Button
-            android:id="@+id/eliminarProducto"
+            android:id="@+id/btnEliminarProducto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
@@ -83,7 +83,7 @@
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
             android:drawableLeft="@drawable/update"
-            android:text="Actualizar"
+            android:text="Editar"
             android:textColor="@color/black" />
     </LinearLayout>
 

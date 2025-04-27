@@ -20,4 +20,10 @@ public interface CategoriasDAO {
     int deleteCateforia(Categoria categoria);
     @Query("SELECT * FROM categorias")
     List<Categoria> getAllCategorias();
+    @Query("SELECT idCategoria FROM categorias  WHERE nombreCategoria = :nombreCategoria LIMIT 1")
+    int getIdCategoriaPorNombre(String nombreCategoria);
+    @Query("SELECT nombreCategoria FROM categorias WHERE idCategoria = :idCategoria")
+    String getNombreCategoriaPorId(int idCategoria);
+
+
 }
