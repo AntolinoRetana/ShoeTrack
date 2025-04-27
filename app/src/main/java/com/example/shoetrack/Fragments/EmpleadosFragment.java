@@ -12,6 +12,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.shoetrack.Adapters.EmpleadosAdapter;
+<<<<<<< HEAD
+=======
+import com.example.shoetrack.DB.AppDatabase;
+>>>>>>> a976e422bbaa410e03cfa9abbf9157d13b3657a7
 import com.example.shoetrack.Moduls.Empleados;
 import com.example.shoetrack.R;
 
@@ -27,8 +31,11 @@ public class EmpleadosFragment extends Fragment {
     private Button btnNuevoEmpleado;
     private RecyclerView rcvEmpleados;
     private EmpleadosAdapter adapter;
+<<<<<<< HEAD
     private List<Empleados> listaEmpleados;
 
+=======
+>>>>>>> a976e422bbaa410e03cfa9abbf9157d13b3657a7
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -72,9 +79,42 @@ public class EmpleadosFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+<<<<<<< HEAD
         // Inflate the layout for this fragment
 
         return inflater.inflate(R.layout.fragment_empleados, container, false);
 
+=======
+        View view = inflater.inflate(R.layout.fragment_empleados, container, false);
+
+        rcvEmpleados = view.findViewById(R.id.rcvEmpleados);
+        rcvEmpleados.setLayoutManager(new LinearLayoutManager(requireContext()));
+
+        btnNuevoEmpleado = view.findViewById(R.id.btnNuevoEmpleado);
+
+        btnNuevoEmpleado.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment nuevoFragmento = new EmpleadoFragmentAgregar();
+                requireActivity().getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.fragmentContainer, nuevoFragmento)
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
+
+        cargarEmpleados();
+
+        return view;
+    }
+
+    private void cargarEmpleados() {
+        List<Empleados> empleados = AppDatabase.getInstance(requireContext())
+                .empleadoDao()
+                .obtenerTodos();
+        adapter = new EmpleadosAdapter(empleados, requireContext());
+        rcvEmpleados.setAdapter(adapter);
+>>>>>>> a976e422bbaa410e03cfa9abbf9157d13b3657a7
     }
 }
