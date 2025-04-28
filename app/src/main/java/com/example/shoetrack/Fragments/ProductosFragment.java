@@ -26,6 +26,8 @@ import com.example.shoetrack.R;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 
 public class ProductosFragment extends Fragment {
@@ -84,20 +86,27 @@ public class ProductosFragment extends Fragment {
                         .commit();
             }
         });
+        cargarProductos();
         return  view;
     }
-    public void cargarProductos(){
-        // Get ProductosDAO from your database
-        ProductosDAO productosDAO = db.productosDAO();
+    public void cargarProductos() {
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        executorService.execute(() -> {
+            AppDatabase db = AppDatabase.getInstance(getContext());
+            ProductosDAO productosDAO = db.productosDAO();
+            List<Productos> productos = productosDAO.getAllProductos();
+            requireActivity().runOnUiThread(() -> {
+                dataProductos.clear();
+                dataProductos.addAll(productos);
 
-        // Get all products
-        List<Productos> productos = productosDAO.getAllProductos();
-
-        // Clear existing data and add all products
-        dataProductos.clear();
-        dataProductos.addAll(productos);
-
-        // Notify adapter about data change
-        productoAdapter.notifyDataSetChanged();
+                if (productoAdapter == null) {
+                    productoAdapter = new ProductoAdapter(getContext(), dataProductos);
+                    rvcProductos.setAdapter(productoAdapter);
+                } else {
+                    productoAdapter.notifyDataSetChanged();
+                }
+            });
+        });
     }
+
 }

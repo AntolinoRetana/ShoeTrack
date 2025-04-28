@@ -115,23 +115,22 @@ public class FragmentInsertarProductos extends Fragment {
             if (resultado > 0) {
                 Toast.makeText(getContext(), "Producto insertado correctamente", Toast.LENGTH_SHORT).show();
                 limpiarCampos();
-                // Cerrar el fragmento automáticamente
-                getActivity().getSupportFragmentManager().beginTransaction()
-                        .remove(FragmentInsertarProductos.this)
-                        .commit();
+                requireActivity().getSupportFragmentManager().popBackStack();
+
             } else {
                 Toast.makeText(getContext(), "Error al insertar producto", Toast.LENGTH_SHORT).show();
             }
+
 
         });
 
         cargarCategorias();
 
-        lblCancelar.setOnClickListener(v -> {
-            // Remover el fragmento actual
-            getActivity().getSupportFragmentManager().beginTransaction()
-                    .remove(FragmentInsertarProductos.this)  // El fragmento actual
-                    .commit();
+        lblCancelar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                requireActivity().getSupportFragmentManager().popBackStack();
+            }
         });
         return view;
     }
