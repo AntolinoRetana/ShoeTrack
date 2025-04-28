@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".InventarioActualFragment">
+
+    <!-- Título de la sección -->
+    <TextView
+        android:id="@+id/tvTituloInventario"
+        style="@style/TextoPrimario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="INVENTARIO ACTUAL"
+        android:textSize="22sp"
+        android:textColor="#4A90E2"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:padding="16dp"
+        android:background="#FFFFFF"
+        android:elevation="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Buscador -->
+    <EditText
+        android:id="@+id/etBuscarInventario"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:background="@drawable/style_imput"
+        android:drawableStart="@drawable/delete"
+        android:drawablePadding="8dp"
+        android:hint="Buscar producto..."
+        android:padding="12dp"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTituloInventario" />
+
+    <!-- Texto informativo valor total -->
+    <TextView
+        android:id="@+id/tvValorTotalInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="Valor total del inventario:"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etBuscarInventario" />
+
+    <!-- Valor total del inventario -->
+    <TextView
+        android:id="@+id/tvValorTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="$0.00"
+        android:textColor="#4A90E2"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvValorTotalInfo" />
+
+    <!-- RecyclerView para mostrar el inventario -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvcInventarioActual"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="8dp"
+        android:clipToPadding="false"
+        app:layout_constraintBottom_toTopOf="@+id/btnAjustarInventario"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvValorTotal"
+        tools:listitem="@layout/item_inventario_actual" />
+
+    <!-- Mensaje cuando no hay datos -->
+    <TextView
+        android:id="@+id/tvSinDatos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No hay productos en inventario"
+        android:textSize="16sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/rvcInventarioActual"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/rvcInventarioActual" />
+
+    <!-- Botón para ajustar inventario -->
+    <Button
+        android:id="@+id/btnAjustarInventario"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/style_btn_primario"
+        android:padding="12dp"
+        android:text="AJUSTAR INVENTARIO"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/spaceForNavigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Espacio reservado para el menú de navegación -->
+    <Space
+        android:id="@+id/spaceForNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</FrameLayout>

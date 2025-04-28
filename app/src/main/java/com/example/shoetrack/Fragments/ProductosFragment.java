@@ -88,7 +88,7 @@ public class ProductosFragment extends Fragment {
     }
     public void cargarProductos(){
         // Get ProductosDAO from your database
-        ProductosDAO productosDAO = db.productosDao();
+        ProductosDAO productosDAO = db.productosDAO();
 
         // Get all products
         List<Productos> productos = productosDAO.getAllProductos();

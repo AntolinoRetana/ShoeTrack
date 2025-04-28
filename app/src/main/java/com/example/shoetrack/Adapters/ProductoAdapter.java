@@ -65,7 +65,7 @@ public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.Produc
                     .setMessage("¿Estás seguro de que deseas eliminar a " + productos.getNombreProducto() + "?")
                     .setPositiveButton("Sí", (dialog, which) -> {
                         // Eliminar de Room
-                        AppDatabase.getInstance(context).productosDao().deleteProductos(productos);
+                        AppDatabase.getInstance(context).productosDAO().deleteProductos(productos);
                         // Actualizar lista local
                         dataProductos.remove(position);
                         notifyItemRemoved(position);

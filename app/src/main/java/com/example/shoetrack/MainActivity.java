@@ -24,7 +24,8 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void navegar(View view) {
+
+    public void Navegar(View view) {
         Intent intent = new Intent(this, MainDashboardActivity.class);
         startActivity(intent);
     }

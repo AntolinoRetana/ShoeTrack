@@ -137,7 +137,7 @@ public class FragmentEdiarProctos extends Fragment {
             productoEditar.setIdCategoria(idCategoria);
 
             // Actualizar en la base de datos
-            int filasAfectadas = db.productosDao().updateProductos(productoEditar);
+            int filasAfectadas = db.productosDAO().updateProductos(productoEditar);
 
             if (filasAfectadas > 0) {
                 Toast.makeText(getContext(), "Producto actualizado correctamente", Toast.LENGTH_SHORT).show();

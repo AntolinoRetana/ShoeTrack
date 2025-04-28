@@ -12,6 +12,7 @@ import com.example.shoetrack.DAOs.CategoriasDAO;
 import com.example.shoetrack.DAOs.ClienteDAO;
 import com.example.shoetrack.DAOs.DetalleVentasDAO;
 import com.example.shoetrack.DAOs.EmpleadoDAO;
+import com.example.shoetrack.DAOs.InventarioActualDAO;
 import com.example.shoetrack.DAOs.MoviminetoInventarioDAO;
 import com.example.shoetrack.DAOs.ProductosDAO;
 import com.example.shoetrack.DAOs.VentasDAO;
@@ -19,18 +20,15 @@ import com.example.shoetrack.Moduls.Categoria;
 import com.example.shoetrack.Moduls.Clientes;
 import com.example.shoetrack.Moduls.DetalleVentas;
 import com.example.shoetrack.Moduls.Empleados;
+import com.example.shoetrack.Moduls.InventariosActual;
 import com.example.shoetrack.Moduls.MovimientoIventario;
 import com.example.shoetrack.Moduls.Productos;
 import com.example.shoetrack.Moduls.Ventas;
 
-<<<<<<< Updated upstream
-@Database(entities = {Clientes.class, Empleados.class, Categoria.class, Productos.class, Ventas.class, DetalleVentas.class},
-=======
-@Database(entities = {Clientes.class, Empleados.class, Categoria.class,
-        Productos.class,
-        MovimientoIventario.class},
->>>>>>> Stashed changes
-        version = 4)
+@Database(entities = {Clientes.class, Empleados.class,
+        Categoria.class, Productos.class, Ventas.class,
+        DetalleVentas.class, MovimientoIventario.class, InventariosActual.class},
+        version = 5)
 public abstract class AppDatabase extends RoomDatabase {
 
         private static AppDatabase INSTANCE;
@@ -39,14 +37,10 @@ public abstract class AppDatabase extends RoomDatabase {
         public abstract VentasDAO ventasDao();
         public abstract EmpleadoDAO empleadoDao();
         public abstract CategoriasDAO categoriasDAO();
-        public abstract ProductosDAO productosDao();
-<<<<<<< Updated upstream
+        public abstract ProductosDAO productosDAO();
         public abstract DetalleVentasDAO detalleVentasDAO();
-=======
-        public abstract MoviminetoInventarioDAO movimientoInventarioDAO(); // Agregamos el DAO de movimientos
->>>>>>> Stashed changes
-
-
+        public abstract MoviminetoInventarioDAO moviminetoInventarioDAO(); // Agregamos el DAO de movimientos
+        public abstract InventarioActualDAO inventarioActualDAO();
         public static synchronized AppDatabase getInstance(Context context) {
                 if (INSTANCE == null) {
                         INSTANCE = Room.databaseBuilder(
@@ -60,6 +54,7 @@ public abstract class AppDatabase extends RoomDatabase {
                 }
                 return INSTANCE;
         }
+
         @Override
         protected SupportSQLiteOpenHelper createOpenHelper(DatabaseConfiguration config) {
                 final SupportSQLiteOpenHelper helper = super.createOpenHelper(config);

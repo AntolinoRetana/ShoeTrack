@@ -1,30 +1,28 @@
-<?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+
     <item
         android:id="@+id/nav_clientes"
-        android:title="Clientes"
-        android:icon="@android:drawable/ic_menu_call" />
+        android:icon="@drawable/delete"
+        android:title="Clientes" />
+
     <item
         android:id="@+id/nav_empleados"
-        android:title="Empleados"
-        android:icon="@android:drawable/ic_menu_manage" />
+        android:icon="@drawable/delete"
+        android:title="Empleados" />
+
     <item
         android:id="@+id/nav_productos"
-        android:title="Productos"
-        android:icon="@android:drawable/ic_menu_crop" />
+        android:icon="@drawable/delete"
+        android:title="Productos" />
+
     <item
         android:id="@+id/nav_categorias"
-        android:title="Categorias"
-        android:icon="@android:drawable/ic_menu_crop" />
-    <item
-<<<<<<< HEAD
-        android:id="@+id/nav_mov_inventario"
-        android:title="Movimintos"
-        android:icon="@android:drawable/ic_menu_crop" />
-=======
-        android:id="@+id/nav_ventas"
-        android:title="Ventas"
-        android:icon="@android:drawable/ic_menu_crop" />
+        android:icon="@drawable/delete"
+        android:title="Categorías" />
 
->>>>>>> 19576cf3b2065ad94fd6f013d67bb30e0d182c76
+    <item
+        android:id="@+id/nav_ventas"
+        android:icon="@drawable/delete"
+        android:title="Ventas" />
+
 </menu>

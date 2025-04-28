@@ -1,7 +1,6 @@
 package com.example.shoetrack;
 
 import android.os.Bundle;
-
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -28,20 +27,23 @@ public class MainDashboardActivity extends AppCompatActivity implements Clientes
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main_dashboard);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+
+        // Corregimos: no buscar un ID que no existe
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.fragmentContainer), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        // Inicializar el BottomNavigationView correctamente
         bottomNavigationView = findViewById(R.id.bottomNavigation);
 
-        // Cargar fragmento inicial (Clientes por defecto)
+        // Cargar fragmento inicial
         loadFragment(new ClientesFragment());
 
-        // Escuchar cambios en el BottomNavigation
+        // Escuchar cambios de navegación
         bottomNavigationView.setOnItemSelectedListener(item -> {
             Fragment selectedFragment = null;
-
             switch (item.getItemId()) {
                 case R.id.nav_clientes:
                     selectedFragment = new ClientesFragment();
@@ -55,13 +57,8 @@ public class MainDashboardActivity extends AppCompatActivity implements Clientes
                 case R.id.nav_categorias:
                     selectedFragment = new CategoriasFragment();
                     break;
-<<<<<<< HEAD
-                case R.id.nav_mov_inventario:
-                    selectedFragment = new MovimientosInventarioFragment();
-=======
                 case R.id.nav_ventas:
                     selectedFragment = new VentasFragment();
->>>>>>> 19576cf3b2065ad94fd6f013d67bb30e0d182c76
                     break;
             }
 
@@ -78,21 +75,19 @@ public class MainDashboardActivity extends AppCompatActivity implements Clientes
                 .replace(R.id.fragmentContainer, fragment)
                 .commit();
     }
-    // Implementación de la interfaz ClientesListener
+
     @Override
     public void onClientesListener() {
-        // Aquí puedes actualizar la lista de clientes o hacer cualquier acción después de agregar un cliente
-        // Por ejemplo, podrías recargar el fragmento de clientes
-        getSupportFragmentManager().beginTransaction()
+        getSupportFragmentManager()
+                .beginTransaction()
                 .replace(R.id.fragmentContainer, new ClientesFragment())
                 .commit();
     }
 
-
     @Override
     public void onCategoriaListener() {
-        // Acción cuando se agrega una categoría
-        getSupportFragmentManager().beginTransaction()
+        getSupportFragmentManager()
+                .beginTransaction()
                 .replace(R.id.fragmentContainer, new CategoriasFragment())
                 .commit();
     }

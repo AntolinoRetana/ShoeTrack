@@ -2,4 +2,13 @@
     <string name="app_name">ShoeTrack</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="app_logo">Logo de la aplicación</string>
+    <string name="welcome_title">Bienvenido</string>
+    <string name="welcome_message">Aplicacion Androi: Asinatura Progrmacion para dispositivos Moviles </string>
+    <string name="get_started">Comenzar</string>
+    <string name="version_number">Versión 1.0</string>
+    <string name="decorative_image">Imagen decorativa</string>
+    <string name="welcome_description">Aplicacion Andorid Utilizando Room para la base dedatso\ PDM </string>
+    <string name="have_account">Version 1.0</string>
+    <string name="log_in_here">Detalles</string>
 </resources>

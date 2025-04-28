@@ -110,7 +110,7 @@ public class FragmentInsertarProductos extends Fragment {
             nuevoProducto.setIdCategoria(idCategoria);
 
             // Insertar en la base de datos
-            long resultado = db.productosDao().insertProductos(nuevoProducto);
+            long resultado = db.productosDAO().insertProductos(nuevoProducto);
 
             if (resultado > 0) {
                 Toast.makeText(getContext(), "Producto insertado correctamente", Toast.LENGTH_SHORT).show();
