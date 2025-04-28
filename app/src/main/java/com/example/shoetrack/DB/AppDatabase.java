@@ -28,7 +28,7 @@ import com.example.shoetrack.Moduls.Ventas;
 @Database(entities = {Clientes.class, Empleados.class,
         Categoria.class, Productos.class, Ventas.class,
         DetalleVentas.class, MovimientoIventario.class, InventariosActual.class},
-        version = 6)
+        version = 7)
 public abstract class AppDatabase extends RoomDatabase {
 
         private static AppDatabase INSTANCE;
