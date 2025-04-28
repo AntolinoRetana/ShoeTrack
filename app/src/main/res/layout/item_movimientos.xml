@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/style_item"
+    android:layout_margin="10dp"
+    android:padding="10dp">
+
+    <!-- Columna izquierda: nombre, cantidad, tipo de movimiento, fecha -->
+    <LinearLayout
+        android:id="@+id/layoutTextoMovimiento"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingEnd="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/layoutBotonesMovimiento"
+        android:layout_marginEnd="8dp">
+
+        <TextView
+            android:id="@+id/lblNombreProductoMovimiento"
+            style="@style/TextoSecundario"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre del Producto" />
+
+        <TextView
+            android:id="@+id/lblCantidadMovimiento"
+            style="@style/TextoSecundario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cantidad" />
+
+        <TextView
+            android:id="@+id/lblTipoMovimiento"
+            style="@style/TextoSecundario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tipo de Movimiento" />
+
+        <TextView
+            android:id="@+id/lblFechaMovimiento"
+            style="@style/TextoSecundario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fecha de Movimiento" />
+    </LinearLayout>
+
+    <!-- Columna derecha: botones -->
+    <LinearLayout
+        android:id="@+id/layoutBotonesMovimiento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <Button
+            android:id="@+id/btnEliminarMovimiento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:drawableLeft="@drawable/delete"
+            android:text="Eliminar"
+            android:textColor="@color/black" />
+
+        <Button
+            android:id="@+id/btnEditarMovimiento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:drawableLeft="@drawable/update"
+            android:text="Editar"
+            android:textColor="@color/black" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

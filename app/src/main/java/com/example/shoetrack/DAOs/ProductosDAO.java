@@ -6,6 +6,7 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
+import com.example.shoetrack.Moduls.MovimientoIventario;
 import com.example.shoetrack.Moduls.Productos;
 
 import java.util.List;
@@ -20,4 +21,13 @@ public interface ProductosDAO {
     int deleteProductos(Productos productos);
     @Query("SELECT * FROM productos")
     List<Productos> getAllProductos();
+    @Query("SELECT * FROM movimientos_inventario WHERE idProducto = :productoId")
+    List<MovimientoIventario> getMovimientosPorProducto(int productoId);
+
+    // Consulta para obtener el nombre del producto por id
+    @Query("SELECT nombreProducto FROM productos WHERE idProducto = :idProducto")
+    String getNombreProductoPorId(int idProducto);
+
+    @Query("SELECT * FROM productos WHERE idCategoria = :idCategoria")
+    List<Productos> getProductosPorCategoria(int idCategoria);
 }
