@@ -36,7 +36,6 @@ public class CategoriaAdapter extends RecyclerView.Adapter<CategoriaAdapter.Cate
     }
 
 
-    // Add the setCategoriaListener method here, at the same level as your other methods
     public void setCategoriaListener(CategoriasDialogo.CategoriaListener listener) {
         this.categoriaListener = listener;
     }
@@ -63,7 +62,6 @@ public class CategoriaAdapter extends RecyclerView.Adapter<CategoriaAdapter.Cate
         Categoria categoria = listCategoria.get(position);
         holder.lblNombreCategoria.setText(categoria.getNombreCategoria());
 
-        // 🔥 CLIC EN ELIMINAR
         holder.btnEliminarCtegoria.setOnClickListener(v -> {
             new android.app.AlertDialog.Builder(context)
                     .setTitle("¿Eliminar estudiante?")
@@ -90,7 +88,6 @@ public class CategoriaAdapter extends RecyclerView.Adapter<CategoriaAdapter.Cate
                     CategoriasDialogo categoriasDialogo = new CategoriasDialogo(categoria, categoriaListener);
                     categoriasDialogo.show(manager, "editar");
                 } else {
-                    // Handle the case when manager is null, perhaps with a Toast message
                     android.widget.Toast.makeText(context, "No se puede editar en este momento",
                             android.widget.Toast.LENGTH_SHORT).show();
                 }

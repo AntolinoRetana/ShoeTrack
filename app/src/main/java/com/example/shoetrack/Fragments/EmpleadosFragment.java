@@ -23,7 +23,6 @@ public class EmpleadosFragment extends Fragment {
     private EmpleadosAdapter adapter;
 
     public EmpleadosFragment() {
-        // Required empty public constructor
     }
 
     public static EmpleadosFragment newInstance(String param1, String param2) {
@@ -39,7 +38,6 @@ public class EmpleadosFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            // Retrieve arguments if necessary
         }
     }
 
@@ -68,7 +66,6 @@ public class EmpleadosFragment extends Fragment {
     }
 
     private void cargarEmpleados() {
-        // Load list of employees from the database
         List<Empleados> empleados = AppDatabase.getInstance(requireContext())
                 .empleadoDao()
                 .obtenerTodos();

@@ -46,10 +46,10 @@ public class CategoriasFragment extends Fragment implements CategoriasDialogo.Ca
         btnNuevaCategoria = view.findViewById(R.id.btnNuebaCategoria);
         rcvCategorias = view.findViewById(R.id.rvcCategorias);
 
-        // Configurar el RecyclerView
+
         rcvCategorias.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        // Abrir el diálogo para agregar un cliente
+
         btnNuevaCategoria.setOnClickListener(v -> {
             CategoriasDialogo dialog = new CategoriasDialogo();
             dialog.show(getChildFragmentManager(), "CategoriasDilogo");
@@ -68,28 +68,22 @@ public class CategoriasFragment extends Fragment implements CategoriasDialogo.Ca
             requireActivity().runOnUiThread(() -> {
                 listaCategoria = categorias;
                 if (adapter == null) {
-                    // Create the adapter with the correct context, data, and FragmentManager
                     adapter = new CategoriaAdapter(getContext(), listaCategoria, getChildFragmentManager());
-                    // Set the listener through the constructor or a setter method
                     setCategoriaListenerForAdapter();
                     rcvCategorias.setAdapter(adapter);
                 } else {
-                    // If adapter already exists, just update the data
                     adapter.notifyDataSetChanged();
                 }
             });
         });
     }
 
-    // Method to set the listener for the adapter
     private void setCategoriaListenerForAdapter() {
         if (adapter != null) {
-            // Create a field in the adapter to set the listener if not already present
             adapter.setCategoriaListener(this);
         }
     }
 
-    // Implementing the CategoriaListener interface
     @Override
     public void onCategoriaListener() {
         // Make sure this method is being called when a category is added/updated
@@ -100,11 +94,9 @@ public class CategoriasFragment extends Fragment implements CategoriasDialogo.Ca
 
             requireActivity().runOnUiThread(() -> {
                 if (listaCategoria != null) {
-                    // Clear and update the existing list
                     listaCategoria.clear();
                     listaCategoria.addAll(categorias);
 
-                    // Notify the adapter about the changes
                     if (adapter != null) {
                         adapter.notifyDataSetChanged();
                     }

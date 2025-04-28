@@ -41,21 +41,13 @@ public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.Produc
 
     @Override
     public void onBindViewHolder(@NonNull ProductoAdapter.ProductoViewHolder holder, int position) {
-        //Creamos on obj
         Productos productos = dataProductos.get(position);
         holder.nombreProducto.setText(productos.getNombreProducto());
         holder.marcaProducto.setText(productos.getMarcaProducto());
-
-        // Convert int to String
         holder.tallaProducto.setText(String.valueOf(productos.getTallaProducto()));
-
-        // Convert double to String
         holder.precioProducto.setText(String.valueOf(productos.getPrecioProducto()));
-
-        // Convert int to String
         holder.categoriaProducto.setText(String.valueOf(productos.getIdCategoria()));
 
-        //Obtener el nombre de la categoría usando el ID de la categoría
         String nombreCategoria = AppDatabase.getInstance(context).categoriasDAO().getNombreCategoriaPorId(productos.getIdCategoria());
         holder.categoriaProducto.setText(nombreCategoria);
 
@@ -78,10 +70,8 @@ public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.Produc
         // CLIC EN EDITAR
        holder.btnEdiatarProducto.setOnClickListener(v -> {
             FragmentEdiarProctos fragmentEdiarProctos = new FragmentEdiarProctos(productos);
-           // Agregado: Mostrar un log para verificar que el producto está pasando correctamente
            Log.d("ProductoAdapter", "Editando producto: " + productos.getNombreProducto());
 
-           // Crear una instancia del fragmento y pasar el producto a editar
             ((AppCompatActivity) context).getSupportFragmentManager()
                     .beginTransaction()
                     .replace(R.id.fragmentContainer, fragmentEdiarProctos)

@@ -36,7 +36,7 @@ public class VentasAdapter extends RecyclerView.Adapter<VentasAdapter.VentasView
     public void onBindViewHolder(@NonNull VentasViewHolder holder, int position) {
         Ventas venta = listaVentas.get(position);
         holder.lblTotalVenta.setText(String.valueOf(venta.getTotal()));
-        holder.lblNombreClienteVenta.setText(String.valueOf(venta.getIdCliente())); // 👈 muestra ID, luego mejoramos para nombre
+        holder.lblNombreClienteVenta.setText(String.valueOf(venta.getIdCliente()));
         holder.lblFechaVenta.setText(venta.getFecha());
     }
 

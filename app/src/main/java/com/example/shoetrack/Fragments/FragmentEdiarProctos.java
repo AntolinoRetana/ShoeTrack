@@ -74,22 +74,18 @@ public class FragmentEdiarProctos extends Fragment {
         btnEditarProducto = view.findViewById(R.id.btnEditarProductoss);
         lblCancelarProducto=view.findViewById(R.id.lblCancelarProducto);
 
-        // Inicializar base de datos y DAO
         db = AppDatabase.getInstance(getContext());
         categoriasDAO = db.categoriasDAO();
 
-        // Luego ya puedes llamar cargarCategorias
         cargarCategorias();
 
 
-        // Rellenar los campos con los datos del producto a editar
         if (productoEditar != null) {
             nombreProducto.setText(productoEditar.getNombreProducto());
             marcaProducto.setText(productoEditar.getMarcaProducto());
             tallaProducto.setText(String.valueOf(productoEditar.getTallaProducto()));
             precioProducto.setText(String.valueOf(productoEditar.getPrecioProducto()));
 
-            // Seleccionar la categoría actual en el Spinner
             String nombreCategoria = categoriasDAO.getNombreCategoriaPorId(productoEditar.getIdCategoria());
             if (nombreCategoria != null) {
                 ArrayAdapter<String> adapter = (ArrayAdapter<String>) spCategoria.getAdapter();
@@ -100,7 +96,6 @@ public class FragmentEdiarProctos extends Fragment {
             }
         }
 
-        // Evento de actualizar producto
         btnEditarProducto.setOnClickListener(v -> {
             String nombre = nombreProducto.getText().toString().trim();
             String marca = marcaProducto.getText().toString().trim();
@@ -129,14 +124,12 @@ public class FragmentEdiarProctos extends Fragment {
                 return;
             }
 
-            // Actualizar objeto Producto
             productoEditar.setNombreProducto(nombre);
             productoEditar.setMarcaProducto(marca);
             productoEditar.setTallaProducto(talla);
             productoEditar.setPrecioProducto(precio);
             productoEditar.setIdCategoria(idCategoria);
 
-            // Actualizar en la base de datos
             int filasAfectadas = db.productosDAO().updateProductos(productoEditar);
 
             if (filasAfectadas > 0) {
@@ -154,7 +147,6 @@ public class FragmentEdiarProctos extends Fragment {
             for (Categoria categoria : listaCategorias) {
                 nombresCategorias.add(categoria.getNombreCategoria());
             }
-            // Aquí se establece el adaptador
             ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, nombresCategorias);
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             spCategoria.setAdapter(adapter);

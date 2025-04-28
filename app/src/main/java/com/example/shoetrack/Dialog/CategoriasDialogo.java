@@ -86,7 +86,6 @@ public class CategoriasDialogo extends DialogFragment {
         btnAgrgarCategoria = view.findViewById(R.id.btnAgrgarCategoria);
         lblCancelarCategoria = view.findViewById(R.id.lblCancelarCategoria);
 
-// Si estamos editando, mostramos el nombre de la categoría
         if (categoria != null) {
             txtNombreCategoria.setText(categoria.getNombreCategoria());
             btnAgrgarCategoria.setText("Actualizar Categoria"); // Cambiar el texto del botón
@@ -96,17 +95,14 @@ public class CategoriasDialogo extends DialogFragment {
             String nombreCategoria = txtNombreCategoria.getText().toString();
 
             if (categoria == null) {
-                // Agregar nueva categoría
                 Categoria nuevaCategoria = new Categoria();
                 nuevaCategoria.setNombreCategoria(nombreCategoria);
 
-                // Ejecutar en hilo de fondo para insertar en la base de datos
                 ExecutorService executorService = Executors.newSingleThreadExecutor();
                 executorService.execute(() -> {
                     AppDatabase db = AppDatabase.getInstance(getContext());
                     db.categoriasDAO().insetCategoria(nuevaCategoria);
 
-                    // Move UI operations to the main thread
                     requireActivity().runOnUiThread(() -> {
                         if (categoriaListener != null) {
                             categoriaListener.onCategoriaListener();
@@ -115,7 +111,6 @@ public class CategoriasDialogo extends DialogFragment {
                     });
                 });
             } else {
-                // Editar categoría existente
                 categoria.setNombreCategoria(nombreCategoria);
 
                 ExecutorService executorService = Executors.newSingleThreadExecutor();

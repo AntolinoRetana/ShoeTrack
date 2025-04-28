@@ -38,7 +38,6 @@ public class ClientesAdapter extends RecyclerView.Adapter<ClientesAdapter.Client
         holder.lblTitulo.setText(clientes.getNombre());
         holder.lblTelefono.setText(clientes.getTelefono());
 
-        // 🔥 CLIC EN ELIMINAR
         holder.btnEliminar.setOnClickListener(v -> {
             new android.app.AlertDialog.Builder(context)
                     .setTitle("¿Eliminar estudiante?")

@@ -29,17 +29,14 @@ public class MainDashboardActivity extends AppCompatActivity implements Clientes
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main_dashboard);
 
-        // Corregimos: no buscar un ID que no existe
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.fragmentContainer), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
 
-        // Inicializar el BottomNavigationView correctamente
         bottomNavigationView = findViewById(R.id.bottomNavigation);
 
-        // Cargar fragmento inicial
         loadFragment(new ClientesFragment());
 
         bottomNavigationView.setOnItemSelectedListener(item -> {
@@ -56,7 +53,7 @@ public class MainDashboardActivity extends AppCompatActivity implements Clientes
                     case R.id.nav_productos:
                         selectedFragment = new ProductosFragment();
                         bottomNavigationView.getMenu().clear();
-                        bottomNavigationView.inflateMenu(R.menu.menu_productos); // Este es el nuevo menú que tú debes crear
+                        bottomNavigationView.inflateMenu(R.menu.menu_productos);
                         enProductos = true;
                         break;
                     case R.id.nav_categorias:

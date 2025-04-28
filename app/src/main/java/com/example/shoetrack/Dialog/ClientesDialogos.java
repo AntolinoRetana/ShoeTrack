@@ -77,7 +77,6 @@ public class ClientesDialogos extends DialogFragment {
         btnAgregarCliente = view.findViewById(R.id.btnAgregarCliente);
         lblCancelarCliente = view.findViewById(R.id.lblCancelarCliente);
 
-        // Acciones del botón de agregar cliente
         btnAgregarCliente.setOnClickListener(v -> {
             String nombre = txtNombreCliente.getText().toString();
             String Telefono = txtTelefonoCliente.getText().toString();
@@ -85,21 +84,17 @@ public class ClientesDialogos extends DialogFragment {
             Clientes nuevoCliente = new Clientes();
             nuevoCliente.setNombre(nombre, Telefono);
 
-            // Ejecutar la operación en un hilo de fondo
             ExecutorService executorService = Executors.newSingleThreadExecutor();
             executorService.execute(() -> {
-                // Obtener la instancia de la base de datos y usar el DAO para insertar
                 AppDatabase db = AppDatabase.getInstance(getContext());
                 db.clienteDao().insertar(nuevoCliente);
 
-                // Llamar al listener para actualizar la lista de clientes
                 if (clientesListener != null) {
                     clientesListener.onClientesListener();
                 }
 
-                // Cerrar el diálogo después de la inserción
                 requireActivity().runOnUiThread(() -> {
-                    if (isAdded()) {  // Verificamos si el fragmento sigue agregado
+                    if (isAdded()) {
                         dismiss();
                     }
                 });
@@ -107,7 +102,6 @@ public class ClientesDialogos extends DialogFragment {
         });
 
 
-        // Acción del botón de cancelar
         lblCancelarCliente.setOnClickListener(v -> dismiss());
 
         return view;

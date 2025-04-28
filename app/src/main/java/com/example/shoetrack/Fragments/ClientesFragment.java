@@ -100,16 +100,14 @@ public class ClientesFragment extends Fragment {
         ExecutorService executorService = Executors.newSingleThreadExecutor();
         executorService.execute(() -> {
             AppDatabase db = AppDatabase.getInstance(getContext());
-            List<Clientes> clientes = db.clienteDao().obtenerTodos();  // Carga la lista de clientes desde la base de datos
+            List<Clientes> clientes = db.clienteDao().obtenerTodos();
 
             requireActivity().runOnUiThread(() -> {
                 listaClientes = clientes;
                 if (adapter == null) {
-                    // Si el adapter aún no ha sido creado, lo creamos y lo asignamos al RecyclerView
                     adapter = new ClientesAdapter(listaClientes, getContext());
                     rcvClientes.setAdapter(adapter);
                 } else {
-                    // Si el adapter ya existe, simplemente notificamos al RecyclerView que los datos han cambiado
                     adapter.notifyDataSetChanged();
                 }
             });

@@ -17,7 +17,6 @@ public class Clientes {
     @ColumnInfo(name = "correo")
     public String correo;
 
-    // Constructor, getters y setters
     public Clientes(String nombre, String telefono, String correo) {
         this.nombre = nombre;
         this.telefono = telefono;
