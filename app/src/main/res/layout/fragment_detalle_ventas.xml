@@ -38,19 +38,20 @@
         app:layout_constraintTop_toBottomOf="@+id/tvTituloDetalleVentas"
         tools:listitem="@layout/item_detalle_venta" />
 
-    <!-- Botón para agregar detalle de venta -->
-    <Button
+    <!-- Botón para agregar detalle de venta (cambiado a MaterialButton) -->
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnAgregarDetalleVentas"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="16dp"
-        android:background="@drawable/style_btn_primario"
         android:padding="12dp"
         android:text="AGREGAR DETALLE"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
+        app:cornerRadius="8dp"
+        app:backgroundTint="@color/btnPrimario"
         app:layout_constraintBottom_toTopOf="@+id/spaceForNavigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

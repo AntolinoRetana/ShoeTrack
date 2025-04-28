@@ -2,43 +2,68 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#F5F5F5">
 
+    <!-- Título de la sección -->
     <TextView
         android:id="@+id/lblTituloClientes"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="44dp"
-        android:text="Clientes"
-        android:textSize="25sp"
+        android:text="CLIENTES"
+        android:textSize="22sp"
+        android:textColor="#4A90E2"
         android:textStyle="bold"
+        android:gravity="center"
+        android:padding="16dp"
+        android:background="#FFFFFF"
+        android:elevation="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- RecyclerView para mostrar los clientes -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcvClientes"
-        android:layout_width="match_parent"
-        android:layout_height="450dp"
-        android:layout_marginTop="23dp"
-        android:maxHeight="450dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="8dp"
+        android:clipToPadding="false"
+        app:layout_constraintBottom_toTopOf="@+id/btnNuevoCliente"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/lblTituloClientes" />
+        app:layout_constraintTop_toBottomOf="@+id/lblTituloClientes" />
 
-    <Button
+    <!-- Botón para agregar nuevo cliente -->
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnNuevoCliente"
-        style="@style/Widget.Material3.Button.ElevatedButton.Icon"
-        android:layout_width="230dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:backgroundTint="@color/btnPrimario"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="16dp"
+        android:padding="12dp"
         android:text="NUEVO CLIENTE"
-        android:textColor="@color/white"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        app:backgroundTint="@color/btnPrimario"
+        app:cornerRadius="8dp"
         app:icon="@drawable/agregar"
         app:iconTint="@color/white"
-        app:layout_constraintTop_toBottomOf="@id/rcvClientes"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/spaceForNavigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Espacio reservado para el menú de navegación -->
+    <Space
+        android:id="@+id/spaceForNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

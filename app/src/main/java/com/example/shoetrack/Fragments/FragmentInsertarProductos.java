@@ -115,6 +115,10 @@ public class FragmentInsertarProductos extends Fragment {
             if (resultado > 0) {
                 Toast.makeText(getContext(), "Producto insertado correctamente", Toast.LENGTH_SHORT).show();
                 limpiarCampos();
+                // Cerrar el fragmento automáticamente
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .remove(FragmentInsertarProductos.this)
+                        .commit();
             } else {
                 Toast.makeText(getContext(), "Error al insertar producto", Toast.LENGTH_SHORT).show();
             }

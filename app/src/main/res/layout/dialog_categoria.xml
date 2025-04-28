@@ -47,7 +47,7 @@
                             android:contentDescription="Category icon"
                             android:padding="10dp"
                             android:scaleType="centerCrop"
-                            android:src="@drawable/zapatos" />
+                            android:src="@drawable/categoria" />
                     </FrameLayout>
                 </RelativeLayout>
 
@@ -82,14 +82,16 @@
                         android:hint="Nombre de la categoría"
                         android:padding="12dp" />
 
-                    <Button
+                    <com.google.android.material.button.MaterialButton
                         android:id="@+id/btnAgrgarCategoria"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/style_btn_primario"
                         android:text="GUARDAR"
                         android:textColor="#FFFFFF"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:padding="12dp"
+                        app:backgroundTint="#4A90E2"
+                        app:cornerRadius="8dp" />
 
                     <!-- TextView para cancelar -->
                     <TextView

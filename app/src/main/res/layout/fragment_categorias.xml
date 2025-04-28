@@ -39,28 +39,29 @@
         tools:listitem="@layout/item_categoria" />
 
     <!-- Botón para agregar categorías -->
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnNuebaCategoria"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="16dp"
-        android:background="@drawable/style_btn_primario"
         android:padding="12dp"
         android:text="AGREGAR CATEGORÍAS"
         android:textColor="#FFFFFF"
+        app:icon="@drawable/agregar"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:backgroundTint="@color/btnPrimario"
+        app:cornerRadius="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/spaceForNavigation"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/spaceForNavigation" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <!-- Espacio reservado para el menú de navegación -->
     <Space
         android:id="@+id/spaceForNavigation"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
+        android:layout_height="36dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

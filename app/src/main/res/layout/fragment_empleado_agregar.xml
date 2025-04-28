@@ -63,15 +63,17 @@
                         android:hint="Cargo"
                         android:padding="12dp" />
 
-                    <Button
+                    <com.google.android.material.button.MaterialButton
                         android:id="@+id/btnAgregarEmpleado"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/style_btn_primario"
                         android:text="AGREGAR"
                         android:textColor="#FFFFFF"
                         android:textStyle="bold"
-                        android:layout_marginTop="20dp"/>
+                        android:layout_marginTop="20dp"
+                        android:padding="12dp"
+                        app:backgroundTint="#4A90E2"
+                        app:cornerRadius="8dp"/>
 
                     <TextView
                         android:id="@+id/btnCancelarEmpleado"

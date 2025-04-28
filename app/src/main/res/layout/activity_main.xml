@@ -8,22 +8,21 @@
     android:background="@drawable/gradient"
     tools:context=".MainActivity">
 
-    <!-- Título principal -->
+
     <TextView
         android:id="@+id/welcome_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="120dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="116dp"
         android:fontFamily="sans-serif-medium"
         android:text="WELCOME"
-        android:textColor="#CED3DC"
-        android:textSize="32sp"
+        android:textColor="#FAFAFB"
+        android:textSize="50dp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Subtítulo -->
     <TextView
         android:id="@+id/onboard_subtitle"
         android:layout_width="wrap_content"
@@ -33,25 +32,26 @@
         android:fontFamily="sans-serif-light"
         android:letterSpacing="0.15"
         android:text="S h o e T r a c k"
-        android:textColor="#F5F8FF"
-        android:textSize="16sp"
+        android:textColor="#FFFFFF"
+        android:textSize="30dp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/welcome_title" />
 
 
 
-    <!-- Texto descriptivo -->
 
     <ImageView
         android:id="@+id/decorative_image"
         android:layout_width="300dp"
         android:layout_height="300dp"
-        android:layout_marginTop="47dp"
+        android:layout_marginTop="4dp"
         android:contentDescription="@string/decorative_image"
         android:padding="20dp"
         android:scaleType="centerInside"
         android:src="@drawable/zaptitos"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/onboard_subtitle" />
 
@@ -60,18 +60,20 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="30dp"
         android:fontFamily="sans-serif-light"
         android:text="@string/welcome_description"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        android:textSize="16sp"
+        android:textSize="26dp"
+        android:textStyle="bold"
+
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/decorative_image" />
 
-    <!-- Botón de registro principal -->
     <com.google.android.material.button.MaterialButton
         android:id="@+id/signup_button"
         android:layout_width="0dp"
@@ -81,7 +83,7 @@
         android:layout_marginBottom="100dp"
         android:backgroundTint="#FFFFFF"
         android:fontFamily="sans-serif-medium"
-        android:text="SIGUIENTES"
+        android:text="SIGUIENTE"
         android:textColor="#8E44AD"
         android:textSize="16sp"
         app:cornerRadius="30dp"
@@ -90,7 +92,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <!-- Texto para usuarios con cuenta -->
     <TextView
         android:id="@+id/have_account_text"
         android:layout_width="wrap_content"
@@ -105,7 +106,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/signup_button" />
 
-    <!-- Enlace de inicio de sesión -->
     <TextView
         android:id="@+id/login_text"
         android:layout_width="wrap_content"

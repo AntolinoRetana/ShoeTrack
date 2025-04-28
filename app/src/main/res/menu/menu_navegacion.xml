@@ -2,27 +2,27 @@
 
     <item
         android:id="@+id/nav_clientes"
-        android:icon="@drawable/delete"
+        android:icon="@drawable/clenets"
         android:title="Clientes" />
 
     <item
         android:id="@+id/nav_empleados"
-        android:icon="@drawable/delete"
+        android:icon="@drawable/empleados"
         android:title="Empleados" />
 
     <item
         android:id="@+id/nav_productos"
-        android:icon="@drawable/delete"
+        android:icon="@drawable/productos_zapatos"
         android:title="Productos" />
 
     <item
         android:id="@+id/nav_categorias"
-        android:icon="@drawable/delete"
+        android:icon="@drawable/categoria"
         android:title="Categorías" />
 
     <item
         android:id="@+id/nav_ventas"
-        android:icon="@drawable/delete"
+        android:icon="@drawable/ventas"
         android:title="Ventas" />
 
 </menu>
