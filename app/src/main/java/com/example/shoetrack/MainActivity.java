@@ -2,6 +2,7 @@ package com.example.shoetrack;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 
 import androidx.activity.EdgeToEdge;
@@ -22,11 +23,17 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        // Esperar 2.5 segundos y abrir Login
+        new Handler().postDelayed(() -> {
+            startActivity(new Intent(MainActivity.this, MainDashboardActivity.class));
+            finish(); // Cierra splash
+        }, 2500);
     }
 
 
-    public void Navegar(View view) {
-        Intent intent = new Intent(this, MainDashboardActivity.class);
-        startActivity(intent);
-    }
+//    public void Navegar(View view) {
+//        Intent intent = new Intent(this, MainDashboardActivity.class);
+//        startActivity(intent);
+//    }
+
 }
