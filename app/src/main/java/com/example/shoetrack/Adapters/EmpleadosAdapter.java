@@ -16,7 +16,7 @@ import com.example.shoetrack.R;
 
 import java.util.List;
 
-public class EmpleadosAdapter extends RecyclerView.Adapter<EmpleadosAdapter.EmpleadosViewHolder>{
+public class EmpleadosAdapter extends RecyclerView.Adapter<EmpleadosAdapter.EmpleadosViewHolder> {
 
     private List<Empleados> listaempleados;
     private Context context;
