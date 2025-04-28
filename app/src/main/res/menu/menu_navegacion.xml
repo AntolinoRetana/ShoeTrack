@@ -17,7 +17,14 @@
         android:title="Categorias"
         android:icon="@android:drawable/ic_menu_crop" />
     <item
+<<<<<<< HEAD
         android:id="@+id/nav_mov_inventario"
         android:title="Movimintos"
         android:icon="@android:drawable/ic_menu_crop" />
+=======
+        android:id="@+id/nav_ventas"
+        android:title="Ventas"
+        android:icon="@android:drawable/ic_menu_crop" />
+
+>>>>>>> 19576cf3b2065ad94fd6f013d67bb30e0d182c76
 </menu>
