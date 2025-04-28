@@ -13,7 +13,6 @@ import com.example.shoetrack.Dialog.ClientesDialogos;
 import com.example.shoetrack.Fragments.CategoriasFragment;
 import com.example.shoetrack.Fragments.ClientesFragment;
 import com.example.shoetrack.Fragments.EmpleadosFragment;
-import com.example.shoetrack.Fragments.MovimientosInventarioFragment;
 import com.example.shoetrack.Fragments.ProductosFragment;
 import com.example.shoetrack.Fragments.VentasFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
