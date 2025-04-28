@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        // Esperar 2.5 segundos y abrir Login
+        // Esperar 2.5 segundos
         new Handler().postDelayed(() -> {
             startActivity(new Intent(MainActivity.this, MainDashboardActivity.class));
             finish(); // Cierra splash

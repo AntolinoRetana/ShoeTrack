@@ -1,9 +1,7 @@
 package com.example.shoetrack.Fragments;
 
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +12,6 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.shoetrack.DAOs.ClienteDAO;
-
 import com.example.shoetrack.DB.AppDatabase;
 import com.example.shoetrack.Moduls.Clientes;
 import com.example.shoetrack.Moduls.Ventas;
@@ -32,13 +29,10 @@ public class VentaFragmentAgregar extends Fragment {
     private AppDatabase db;
     private ClienteDAO clientesDAO;
 
+    private List<Clientes> listaClientes = new ArrayList<>();
+
     public VentaFragmentAgregar() {
         // Required empty public constructor
-    }
-
-    public static VentaFragmentAgregar newInstance(String param1, String param2) {
-        VentaFragmentAgregar fragment = new VentaFragmentAgregar();
-        return fragment;
     }
 
     @Override
@@ -61,50 +55,46 @@ public class VentaFragmentAgregar extends Fragment {
         cargarClientes();
 
         btnAgregarVentas.setOnClickListener(v -> {
-            String clienteSeleccionado = spinnerClientes.getSelectedItem() != null ? spinnerClientes.getSelectedItem().toString() : "";
-            String totalVentaStr = txtTotalVenta.getText().toString().trim();
-            String fechaVenta = txtFechaVenta.getText().toString().trim();
+            int posicionSeleccionada = spinnerClientes.getSelectedItemPosition();
+            if (posicionSeleccionada >= 0 && posicionSeleccionada < listaClientes.size()) {
+                Clientes clienteSeleccionado = listaClientes.get(posicionSeleccionada);
 
-            // Verificar que todos los campos estén completos
-            if (clienteSeleccionado.isEmpty() || totalVentaStr.isEmpty() || fechaVenta.isEmpty()) {
-                Toast.makeText(getContext(), "Por favor completa todos los campos", Toast.LENGTH_SHORT).show();
-                return;
+                String totalVentaStr = txtTotalVenta.getText().toString().trim();
+                String fechaVenta = txtFechaVenta.getText().toString().trim();
+
+                // Convertir totalVenta a double
+                double totalVenta;
+                try {
+                    totalVenta = Double.parseDouble(totalVentaStr);
+                } catch (NumberFormatException e) {
+                    Toast.makeText(getContext(), "Total de venta no válido", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                Ventas ventas = new Ventas(clienteSeleccionado.getId(), fechaVenta, totalVenta);
+                AppDatabase.getInstance(getContext()).ventasDao().insertar(ventas);
+
+                Toast.makeText(getContext(), "Venta registrada para " + clienteSeleccionado.getNombre(), Toast.LENGTH_SHORT).show();
+
+                txtFechaVenta.setText("");
+                txtTotalVenta.setText("");
+                spinnerClientes.setSelection(0);
+
+            } else {
+                Toast.makeText(getContext(), "Debe seleccionar un cliente válido", Toast.LENGTH_SHORT).show();
             }
-
-            // Obtener el ID del cliente seleccionado
-            Clientes clienteSeleccionadoObj = (Clientes) spinnerClientes.getSelectedItem();
-            int idCliente = clienteSeleccionadoObj.getId(); // Aquí obtenemos el id del cliente.
-
-            // Convertir totalVenta a double
-            double totalVenta = 0;
-            try {
-                totalVenta = Double.parseDouble(totalVentaStr);
-            } catch (NumberFormatException e) {
-                Toast.makeText(getContext(), "Total de venta no válido", Toast.LENGTH_SHORT).show();
-                return;
-            }
-
-            // Crear un objeto de venta con el id del cliente, fecha y total
-            Ventas ventas = new Ventas(idCliente, fechaVenta, totalVenta);
-
-            // Insertar la venta en la base de datos
-            AppDatabase.getInstance(getContext()).ventasDao().insertar(ventas);
-
-            // Mensaje de éxito
-            Toast.makeText(getContext(), "Venta registrada para " + clienteSeleccionado, Toast.LENGTH_SHORT).show();
         });
-
 
         return view;
     }
 
     private void cargarClientes() {
-        List<Clientes> listaClientes = clientesDAO.obtenerTodos();
+        listaClientes = clientesDAO.obtenerTodos();
 
         if (listaClientes != null && !listaClientes.isEmpty()) {
             List<String> nombresClientes = new ArrayList<>();
             for (Clientes cliente : listaClientes) {
-                nombresClientes.add(cliente.getNombre()); // Usa tu método correcto
+                nombresClientes.add(cliente.getNombre());
             }
 
             ArrayAdapter<String> adapter = new ArrayAdapter<>(

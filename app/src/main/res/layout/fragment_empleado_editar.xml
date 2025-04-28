@@ -69,6 +69,8 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/style_btn_primario"
                         android:text="AGREGAR"
+                        app:backgroundTint="#4A90E2"
+
                         android:textColor="#FFFFFF"
                         android:textStyle="bold"
                         android:layout_marginTop="20dp"/>
@@ -81,6 +83,7 @@
                         android:layout_gravity="center"
                         android:text="CANCELAR"
                         android:textColor="#4A90E2"
+
                         android:textStyle="bold" />
 
                 </LinearLayout>

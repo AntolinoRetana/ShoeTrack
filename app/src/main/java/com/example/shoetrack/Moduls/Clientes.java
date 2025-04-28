@@ -47,7 +47,7 @@ public class Clientes {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
+    public void setNombre(String nombre, String telefono) {
         this.nombre = nombre;
     }
 

@@ -31,7 +31,7 @@ public class EmpleadosAdapter extends RecyclerView.Adapter<EmpleadosAdapter.Empl
     @NonNull
     @Override
     public EmpleadosViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.lista_items_empleados, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.lista_items_empleados, parent, false);
         return new EmpleadosViewHolder(view);
     }
 
@@ -58,14 +58,14 @@ public class EmpleadosAdapter extends RecyclerView.Adapter<EmpleadosAdapter.Empl
                     .show();
         });
 
-//        holder.btnEditarDatos.setOnClickListener(v -> {
-//            EmpleadoFragmentEditar fragmentEditar = new EmpleadoFragmentEditar(empleado);
-//            ((AppCompatActivity) context).getSupportFragmentManager()
-//                    .beginTransaction()
-//                    .replace(R.id.fragmentContainer, fragmentEditar)
-//                    .addToBackStack(null)
-//                    .commit();
-//        });
+        holder.btnEditarDatos.setOnClickListener(v -> {
+            EmpleadoFragmentEditar fragmentEditar = new EmpleadoFragmentEditar(empleado);
+            ((AppCompatActivity) context).getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragmentContainer, fragmentEditar)
+                    .addToBackStack(null)
+                    .commit();
+        });
     }
 
     @Override

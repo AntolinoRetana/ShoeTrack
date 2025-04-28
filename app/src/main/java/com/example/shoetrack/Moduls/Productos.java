@@ -25,7 +25,7 @@ public class Productos {
     @ColumnInfo(name = "precioProducto")
     private double precioProducto;
     @ColumnInfo(name = "idCategoria" )
-    private int idCategoria; //LLave Foranea que hacer referencia la la tb categia
+    private int idCategoria;
 
 
     public Productos() {

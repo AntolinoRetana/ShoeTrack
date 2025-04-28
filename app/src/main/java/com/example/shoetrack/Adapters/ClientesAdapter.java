@@ -36,6 +36,7 @@ public class ClientesAdapter extends RecyclerView.Adapter<ClientesAdapter.Client
         Clientes clientes = clientesList.get(position);
         holder.imgItem.setImageResource(R.drawable.boy);
         holder.lblTitulo.setText(clientes.getNombre());
+        holder.lblTelefono.setText(clientes.getTelefono());
 
         // 🔥 CLIC EN ELIMINAR
         holder.btnEliminar.setOnClickListener(v -> {
@@ -68,13 +69,14 @@ public class ClientesAdapter extends RecyclerView.Adapter<ClientesAdapter.Client
 
     public class ClientesViewHolder extends RecyclerView.ViewHolder {
         private ImageView imgItem, btnEditar, btnEliminar;
-        private TextView lblTitulo;
+        private TextView lblTitulo,lblTelefono;
         public ClientesViewHolder(@NonNull View itemView) {
             super(itemView);
             imgItem = itemView.findViewById(R.id.imgItem);
             lblTitulo = itemView.findViewById(R.id.lblTitulo);
             btnEditar = itemView.findViewById(R.id.btnEditarDatos);
             btnEliminar = itemView.findViewById(R.id.btnEliminar);
+            lblTelefono = itemView.findViewById(R.id.lblTelefono);
         }
     }
 }

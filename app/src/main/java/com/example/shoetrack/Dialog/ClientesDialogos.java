@@ -80,9 +80,10 @@ public class ClientesDialogos extends DialogFragment {
         // Acciones del botón de agregar cliente
         btnAgregarCliente.setOnClickListener(v -> {
             String nombre = txtNombreCliente.getText().toString();
+            String Telefono = txtTelefonoCliente.getText().toString();
 
             Clientes nuevoCliente = new Clientes();
-            nuevoCliente.setNombre(nombre);
+            nuevoCliente.setNombre(nombre, Telefono);
 
             // Ejecutar la operación en un hilo de fondo
             ExecutorService executorService = Executors.newSingleThreadExecutor();

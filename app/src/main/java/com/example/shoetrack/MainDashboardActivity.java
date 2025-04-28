@@ -45,7 +45,7 @@ public class MainDashboardActivity extends AppCompatActivity implements Clientes
         bottomNavigationView.setOnItemSelectedListener(item -> {
             Fragment selectedFragment = null;
 
-            if (!enProductos) { // Estamos en el menú principal
+            if (!enProductos) {
                 switch (item.getItemId()) {
                     case R.id.nav_clientes:
                         selectedFragment = new ClientesFragment();
@@ -75,10 +75,9 @@ public class MainDashboardActivity extends AppCompatActivity implements Clientes
                         selectedFragment = new CategoriasFragment();
                         break;
                     case R.id.nav_regresar:
-                        // Volver al menú principal
                         bottomNavigationView.getMenu().clear();
-                        bottomNavigationView.inflateMenu(R.menu.menu_navegacion); // Tu menú original
-                        selectedFragment = new ClientesFragment(); // O el fragmento que quieres al volver
+                        bottomNavigationView.inflateMenu(R.menu.menu_navegacion);
+                        selectedFragment = new ClientesFragment();
                         enProductos = false;
                         break;
                 }

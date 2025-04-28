@@ -28,6 +28,10 @@ public class EmpleadoFragmentEditar extends Fragment {
     private TextView btnCancelarEmpleado;
     private Empleados empleados;
 
+    public EmpleadoFragmentEditar(Empleados empleados) {
+        this.empleados = empleados;
+    }
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -78,7 +82,6 @@ public class EmpleadoFragmentEditar extends Fragment {
         btnCancelarEmpleado = vista.findViewById(R.id.btnCancelarEmpleado);
         btnEditarEmpleado = vista.findViewById(R.id.btnEditarEmpleado);
 
-        // Prellenar campos
         txtNombreEmpleadoEditar.setText(empleados.getNombre());
         txtCargoEmpleadoEditar.setText(empleados.getPuesto());
 

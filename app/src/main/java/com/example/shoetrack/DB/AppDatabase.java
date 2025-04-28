@@ -39,7 +39,7 @@ public abstract class AppDatabase extends RoomDatabase {
         public abstract CategoriasDAO categoriasDAO();
         public abstract ProductosDAO productosDAO();
         public abstract DetalleVentasDAO detalleVentasDAO();
-        public abstract MoviminetoInventarioDAO moviminetoInventarioDAO(); // Agregamos el DAO de movimientos
+        public abstract MoviminetoInventarioDAO moviminetoInventarioDAO();
         public abstract InventarioActualDAO inventarioActualDAO();
         public static synchronized AppDatabase getInstance(Context context) {
                 if (INSTANCE == null) {
@@ -49,7 +49,7 @@ public abstract class AppDatabase extends RoomDatabase {
                                         "zapateria_db"
                                 )
                                 .fallbackToDestructiveMigration()
-                                .allowMainThreadQueries() // Solo para pruebas
+                                .allowMainThreadQueries()
                                 .build();
                 }
                 return INSTANCE;

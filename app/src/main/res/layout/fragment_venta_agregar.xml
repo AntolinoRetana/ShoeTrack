@@ -84,6 +84,7 @@
                     android:layout_height="wrap_content"
                     android:text="AGREGAR VENTA"
                     android:textColor="#FFFFFF"
+                    app:backgroundTint="#4A90E2"
                     android:background="@drawable/style_btn_primario"
                     android:textStyle="bold"
                     android:layout_marginTop="24dp"/>

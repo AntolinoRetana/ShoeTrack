@@ -50,6 +50,7 @@
         android:padding="12dp"
         android:text="AGREGAR MOVIMIENTO"
         android:textColor="#FFFFFF"
+        app:backgroundTint="#4A90E2"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
