@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_productos"
+        android:icon="@drawable/delete"
+        android:title="Productos" />
+
+    <item
+        android:id="@+id/nav_categorias"
+        android:icon="@drawable/delete"
+        android:title="Categorías" />
+    <item
+        android:id="@+id/nav_regresar"
+        android:icon="@drawable/agregar"
+        android:title="Regresar"
+        />
+
+
+</menu>

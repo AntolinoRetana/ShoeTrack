@@ -16,11 +16,6 @@
         android:title="Productos" />
 
     <item
-        android:id="@+id/nav_categorias"
-        android:icon="@drawable/delete"
-        android:title="Categorías" />
-
-    <item
         android:id="@+id/nav_ventas"
         android:icon="@drawable/delete"
         android:title="Ventas" />
