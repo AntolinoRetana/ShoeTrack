@@ -8,9 +8,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.shoetrack.DB.AppDatabase;
+import com.example.shoetrack.Fragments.EmpleadoFragmentEditar;
 import com.example.shoetrack.Moduls.Empleados;
 import com.example.shoetrack.R;
 
@@ -38,9 +40,8 @@ public class EmpleadosAdapter extends RecyclerView.Adapter<EmpleadosAdapter.Empl
         Empleados empleado = listaempleados.get(position);
         holder.txtNombreEmpleado.setText(empleado.getNombre());
         holder.txtCargoEmpleado.setText(empleado.getPuesto());
-        holder.imgItem.setImageResource(R.drawable.boy); // Reemplaza 'boy' por la imagen adecuada
+        holder.imgItem.setImageResource(R.drawable.boy);
 
-        // 🔥 CLIC EN ELIMINAR
         holder.btnEliminar.setOnClickListener(v -> {
             new android.app.AlertDialog.Builder(context)
                     .setTitle("¿Eliminar empleado?")
@@ -56,6 +57,15 @@ public class EmpleadosAdapter extends RecyclerView.Adapter<EmpleadosAdapter.Empl
                     .setNegativeButton("No", null)
                     .show();
         });
+
+//        holder.btnEditarDatos.setOnClickListener(v -> {
+//            EmpleadoFragmentEditar fragmentEditar = new EmpleadoFragmentEditar(empleado);
+//            ((AppCompatActivity) context).getSupportFragmentManager()
+//                    .beginTransaction()
+//                    .replace(R.id.fragmentContainer, fragmentEditar)
+//                    .addToBackStack(null)
+//                    .commit();
+//        });
     }
 
     @Override
