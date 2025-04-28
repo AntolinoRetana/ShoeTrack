@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/style_item"
+    android:layout_margin="10dp"
+    android:padding="10dp">
+
+    <!-- Columna izquierda: Datos del detalle de venta -->
+    <LinearLayout
+        android:id="@+id/layoutTextoDetalleVenta"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingEnd="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/layoutBotonesDetalleVenta"
+        android:layout_marginEnd="8dp">
+
+        <TextView
+            android:id="@+id/lblNombreProductoDetalle"
+            style="@style/TextoSecundario"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Producto" />
+
+        <TextView
+            android:id="@+id/lblCantidadDetalle"
+            style="@style/TextoSecundario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cantidad" />
+
+        <TextView
+            android:id="@+id/lblPrecioDetalle"
+            style="@style/TextoSecundario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Precio Unitario" />
+    </LinearLayout>
+
+    <!-- Columna derecha: botones -->
+    <LinearLayout
+        android:id="@+id/layoutBotonesDetalleVenta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <Button
+            android:id="@+id/btnEliminarDetalleVenta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:drawableLeft="@drawable/delete"
+            android:text="Eliminar"
+            android:textColor="@color/black" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

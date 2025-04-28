@@ -15,6 +15,7 @@ import com.example.shoetrack.Fragments.CategoriasFragment;
 import com.example.shoetrack.Fragments.ClientesFragment;
 import com.example.shoetrack.Fragments.EmpleadosFragment;
 import com.example.shoetrack.Fragments.ProductosFragment;
+import com.example.shoetrack.Fragments.VentasFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainDashboardActivity extends AppCompatActivity implements ClientesDialogos.ClientesListener, CategoriasDialogo.CategoriaListener {
@@ -52,6 +53,9 @@ public class MainDashboardActivity extends AppCompatActivity implements Clientes
                     break;
                 case R.id.nav_categorias:
                     selectedFragment = new CategoriasFragment();
+                    break;
+                case R.id.nav_ventas:
+                    selectedFragment = new VentasFragment();
                     break;
             }
 
