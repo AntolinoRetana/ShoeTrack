@@ -74,6 +74,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/decorative_image" />
 
+<<<<<<< HEAD
     <com.google.android.material.button.MaterialButton
         android:id="@+id/signup_button"
         android:layout_width="0dp"
@@ -119,5 +120,19 @@
         app:layout_constraintBaseline_toBaselineOf="@id/have_account_text"
         app:layout_constraintStart_toEndOf="@id/have_account_text"
         app:layout_constraintEnd_toEndOf="parent" />
+=======
+    <!-- Barra de progreso -->
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="0dp"
+        android:layout_height="8dp"
+        android:indeterminate="true"
+        android:progressDrawable="@drawable/progress_bar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="32dp" />
+>>>>>>> 41a748f282ee374c551cc82776f9fa87d2920469
 
 </androidx.constraintlayout.widget.ConstraintLayout>

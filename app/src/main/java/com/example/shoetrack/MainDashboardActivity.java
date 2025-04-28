@@ -20,6 +20,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class MainDashboardActivity extends AppCompatActivity implements ClientesDialogos.ClientesListener, CategoriasDialogo.CategoriaListener {
 
     private BottomNavigationView bottomNavigationView;
+    private boolean enProductos = false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,25 +42,46 @@ public class MainDashboardActivity extends AppCompatActivity implements Clientes
         // Cargar fragmento inicial
         loadFragment(new ClientesFragment());
 
-        // Escuchar cambios de navegación
         bottomNavigationView.setOnItemSelectedListener(item -> {
             Fragment selectedFragment = null;
-            switch (item.getItemId()) {
-                case R.id.nav_clientes:
-                    selectedFragment = new ClientesFragment();
-                    break;
-                case R.id.nav_empleados:
-                    selectedFragment = new EmpleadosFragment();
-                    break;
-                case R.id.nav_productos:
-                    selectedFragment = new ProductosFragment();
-                    break;
-                case R.id.nav_categorias:
-                    selectedFragment = new CategoriasFragment();
-                    break;
-                case R.id.nav_ventas:
-                    selectedFragment = new VentasFragment();
-                    break;
+
+            if (!enProductos) { // Estamos en el menú principal
+                switch (item.getItemId()) {
+                    case R.id.nav_clientes:
+                        selectedFragment = new ClientesFragment();
+                        break;
+                    case R.id.nav_empleados:
+                        selectedFragment = new EmpleadosFragment();
+                        break;
+                    case R.id.nav_productos:
+                        selectedFragment = new ProductosFragment();
+                        bottomNavigationView.getMenu().clear();
+                        bottomNavigationView.inflateMenu(R.menu.menu_productos); // Este es el nuevo menú que tú debes crear
+                        enProductos = true;
+                        break;
+                    case R.id.nav_categorias:
+                        selectedFragment = new CategoriasFragment();
+                        break;
+                    case R.id.nav_ventas:
+                        selectedFragment = new VentasFragment();
+                        break;
+                }
+            } else {
+                switch (item.getItemId()) {
+                    case R.id.nav_productos:
+                        selectedFragment = new ProductosFragment();
+                        break;
+                    case R.id.nav_categorias:
+                        selectedFragment = new CategoriasFragment();
+                        break;
+                    case R.id.nav_regresar:
+                        // Volver al menú principal
+                        bottomNavigationView.getMenu().clear();
+                        bottomNavigationView.inflateMenu(R.menu.menu_navegacion); // Tu menú original
+                        selectedFragment = new ClientesFragment(); // O el fragmento que quieres al volver
+                        enProductos = false;
+                        break;
+                }
             }
 
             if (selectedFragment != null) {
@@ -66,6 +89,7 @@ public class MainDashboardActivity extends AppCompatActivity implements Clientes
             }
             return true;
         });
+
     }
 
     private void loadFragment(Fragment fragment) {

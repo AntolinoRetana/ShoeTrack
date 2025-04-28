@@ -16,11 +16,14 @@
         android:title="Productos" />
 
     <item
+<<<<<<< HEAD
         android:id="@+id/nav_categorias"
         android:icon="@drawable/categoria"
         android:title="Categorías" />
 
     <item
+=======
+>>>>>>> 41a748f282ee374c551cc82776f9fa87d2920469
         android:id="@+id/nav_ventas"
         android:icon="@drawable/ventas"
         android:title="Ventas" />

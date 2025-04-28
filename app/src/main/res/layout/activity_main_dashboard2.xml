@@ -22,14 +22,10 @@
         android:id="@+id/bottomNavigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-<<<<<<< HEAD
-        android:background="#4A90E2"
-=======
         android:background="@color/azulMenu"
->>>>>>> 41a748f282ee374c551cc82776f9fa87d2920469
         app:itemIconTint="@android:color/black"
         app:itemTextColor="@android:color/black"
-        app:menu="@menu/menu_navegacion"
+        app:menu="@menu/menu_productos"
         app:itemBackground="@drawable/bottom_nav_item_background"
         />
 
